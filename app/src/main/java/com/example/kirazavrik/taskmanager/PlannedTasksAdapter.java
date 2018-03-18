@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class PlannedTasksAdapter extends RecyclerView.Adapter<PlannedTasksAdapter.ViewHolder>{
 
     private MutableLiveData<ArrayList<Task>> tasks;
-    private Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -36,9 +35,8 @@ public class PlannedTasksAdapter extends RecyclerView.Adapter<PlannedTasksAdapte
         }
     }
 
-    public PlannedTasksAdapter(MutableLiveData<ArrayList<Task>> tasks, Context context) {
+    public PlannedTasksAdapter(MutableLiveData<ArrayList<Task>> tasks) {
         this.tasks = tasks;
-        this.context = context;
     }
 
     @Override

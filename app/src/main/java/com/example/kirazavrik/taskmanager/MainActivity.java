@@ -1,5 +1,6 @@
 package com.example.kirazavrik.taskmanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,10 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.kirazavrik.taskmanager.view.CompletedTasksFragment;
+import com.example.kirazavrik.taskmanager.view.NewTaskActivity;
 import com.example.kirazavrik.taskmanager.view.PlannedTasksFragment;
 
 public class MainActivity extends AppCompatActivity {
     FragmentPagerAdapter adapterViewPager;
+    private final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                showNewTaskFragment();
             }
         });
     }
@@ -86,5 +88,10 @@ public class MainActivity extends AppCompatActivity {
                     return null;
             }
         }
+    }
+
+    public void showNewTaskFragment() {
+        Intent i = new Intent(MainActivity.this, NewTaskActivity.class);
+        startActivityForResult(i, REQUEST_CODE);
     }
 }
